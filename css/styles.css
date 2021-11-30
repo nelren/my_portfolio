@@ -57,6 +57,33 @@ img {
 
 strong { font-weight: var(--fw-bold) }
 
+/* mark as selected when using the tab key */
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+/* Buttons */
+
+.btn{
+    display: inline-block;
+    padding: .5em 3.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+/* When hover the button it will be bigger or smaller */
+.btn:hover{
+    transform: scale(1.1);
+}
+
 /* Typography */
 
 h1,
@@ -150,3 +177,55 @@ nav { display: none; }
 }
 
 /*  My services section  */
+
+.my-services{
+    background-color: var(--clr-dark);
+    background-image: url(../img/server2.jpg);
+    background-size: cover; /* To make sure it never repeats */
+    background-blend-mode: multiply;
+    opacity: 0.9;
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.section__title--services{
+    color: var(--clr-accent);
+    position: relative;
+}
+
+/* line below the title */
+.section__title--services::after{
+    content: '';
+    display: block;
+    width: 3em;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    background: var(--clr-light);
+    opacity: 0.5;
+}
+
+.services{
+    margin-bottom: 4em;
+}
+
+.service{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (min-width: 800px){
+    .services{
+        display: flex;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* content of subtitles never touch each other when resizing the display 
+    t add a sibling to the left*/
+    .service + .service{
+        margin-left: 2em;
+
+    }
+}
+
